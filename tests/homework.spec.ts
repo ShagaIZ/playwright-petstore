@@ -1,12 +1,14 @@
 import { test, expect} from '@playwright/test';
 
-//1
+
+test.describe('Урок 2', async()=>{
+
 test('Проверка урла страницы авторизации', async({page})=>{
     await page.goto('https://jpetstore.aspectran.com/account/signonForm')
     await expect(page).toHaveURL('https://jpetstore.aspectran.com/account/signonForm')
 })
 
-//2
+
 test('Элементы страницы авторизации', async({page})=>{
     await page.goto('https://jpetstore.aspectran.com/account/signonForm')
     const username = page.locator('[name="username"]')
@@ -19,7 +21,7 @@ test('Элементы страницы авторизации', async({page})=>
     await expect(panelRegister).toBeVisible()
 })
 
-//3
+
 test('Ввести валидные данные в поля username и password, нажать на Login → авторизация прошла', async({page})=>{
     await page.goto('https://jpetstore.aspectran.com/account/signonForm')
     const username = page.locator('[name="username"]')
@@ -148,4 +150,5 @@ test('Не заполнять поле username и ввести валидные
     await password.type('1234')
     await expect(errorMessage).toBeVisible()
     await expect(errorMessage).toHaveText('Invalid username or password.  Signon failed.')
+})
 })
