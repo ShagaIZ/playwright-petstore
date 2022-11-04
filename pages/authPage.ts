@@ -18,4 +18,38 @@ export class AuthPage {
          this.welcomeContent = page.locator('[id="WelcomeContent"]')
          this.errorMessage = page.locator('[class="panel failed"]')
     }
+
+    async clickUsernameField(){
+        await this.username.click()
+    }
+
+    async clearAndTypeUsernameField(username:string){
+        await this.username.press('Control+A')
+        await this.username.press('Backspace')
+        await this.username.type(username)
+    }
+
+    async clickPasswordField(){
+        await this.password.click()
+    }
+
+    async clearAndTypePasswordField(password:string){
+        await this.password.press('Control+A')
+        await this.password.press('Backspace')
+        await this.password.type(password)
+    }
+    
+    async typeUsername(username: string){
+        await this.clickUsernameField()
+        await  this.clearAndTypeUsernameField(username)
+    }
+
+    async typePassword(password:string){
+        await this.clickPasswordField()
+       await  this.clearAndTypePasswordField(password)
+    }
+
+    async clickLoginButton(){
+        await this.loginButton.click()
+    }
 }
