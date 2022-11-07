@@ -23,7 +23,7 @@ export class AuthPage {
         await this.username.click()
     }
 
-    async clearAndTypeUsernameField(username:string){
+    async clearAndTypeUsernameField(username){
         await this.username.press('Control+A')
         await this.username.press('Backspace')
         await this.username.type(username)
@@ -33,23 +33,27 @@ export class AuthPage {
         await this.password.click()
     }
 
-    async clearAndTypePasswordField(password:string){
+    async clearAndTypePasswordField(password){
         await this.password.press('Control+A')
         await this.password.press('Backspace')
         await this.password.type(password)
     }
     
-    async typeUsername(username: string){
+    async typeUsername(username){
         await this.clickUsernameField()
         await  this.clearAndTypeUsernameField(username)
     }
 
-    async typePassword(password:string){
+    async typePassword(password){
         await this.clickPasswordField()
        await  this.clearAndTypePasswordField(password)
     }
 
     async clickLoginButton(){
         await this.loginButton.click()
+    }
+
+    async loadPage(options){
+        await this.page.waitForLoadState(options)
     }
 }
