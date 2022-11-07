@@ -1,9 +1,9 @@
 import { test as base} from "@playwright/test"
-import { HomePage } from "../pages/homePage"
+import { CatalogPage } from "../pages/catalogPage"
 
-export const test = base.extend<{homePage:HomePage}>({
-    homePage: async({page}, use)=>{
-        const homePage = new HomePage(page)
-        await use(homePage)
+export const test = base.extend<{catalogPage:CatalogPage}>({
+    catalogPage: async({page}, use)=>{
+        const catalogPage = new CatalogPage(page)
+        await use(catalogPage)
     }
 })

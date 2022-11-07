@@ -2,7 +2,7 @@ import { Page, Locator } from "@playwright/test"
 import { AuthPage } from "./authPage"
 
 
-export class HomePage extends AuthPage {
+export class CatalogPage extends AuthPage {
     readonly page: Page
     readonly logoFooter:Locator
     readonly about:Locator
