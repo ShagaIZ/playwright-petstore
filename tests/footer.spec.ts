@@ -2,7 +2,7 @@ import { expect } from "@playwright/test"
 import { test } from "../fixtures/catalogFixtures"
 
 
-test.describe.only('Проверки футера католога', async()=>{
+test.describe('Проверки футера католога', async()=>{
 
         test.beforeEach(async({catalogPage})=>{
             await catalogPage.page.goto('https://jpetstore.aspectran.com/account/signonForm')

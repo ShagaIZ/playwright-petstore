@@ -1,7 +1,7 @@
 import {expect} from "@playwright/test"
 import {test} from '../fixtures/authFixture'
 
-test.describe.only('Общие проверки', async()=>{
+test.describe('Общие проверки', async()=>{
 
     test.beforeEach(async({authPage})=>{
         await authPage.page.goto('https://jpetstore.aspectran.com/account/signonForm')
