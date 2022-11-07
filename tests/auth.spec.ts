@@ -5,6 +5,7 @@ test.describe.only('Общие проверки', async()=>{
 
     test.beforeEach(async({authPage})=>{
         await authPage.page.goto('https://jpetstore.aspectran.com/account/signonForm')
+        await authPage.loadPage('networkidle')
     })
     test('Проверка урла страницы авторизации', async({authPage})=>{
         await expect(authPage.page).toHaveURL('https://jpetstore.aspectran.com/account/signonForm')
@@ -22,7 +23,7 @@ test.describe.only('Общие проверки', async()=>{
     test('Ввести валидные данные в поля username и password, нажать на Login → авторизация прошла', async({authPage})=>{
         await authPage.typeUsername('Ilyas')
         await authPage.typePassword('1234')
-        await authPage.loginButton.click()
+        await authPage.clickLoginButton()
         await expect(authPage.welcomeContent).toBeVisible()
         await expect(authPage.welcomeContent).toHaveText('Welcome Ilyas!')
     })
